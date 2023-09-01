@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Header from "./header/Header";
 
 const initialFriends = [
   {
@@ -58,6 +59,7 @@ export default function App() {
   return (
     <div className="app">
       <div className="sidebar">
+        <Header />
         <FriendList 
         friends={friends} 
         selectedFriend={selectedFriend} 
@@ -171,7 +173,7 @@ function FormSplitBill({ selectedFriend, onSplitBill }){
     <form className="form-split-bill" onSubmit={handleSubmit}>
     <h2>Split a bill with {selectedFriend.name}</h2>
 
-      <label> Bill value</label>
+      <label>💰 Bill value</label>
       <input 
       type='text' 
       value={bill} 
@@ -186,13 +188,13 @@ function FormSplitBill({ selectedFriend, onSplitBill }){
       }
       />
 
-      <label> {selectedFriend.name}'s expense</label>
+      <label>🧑‍🤝‍🧑 {selectedFriend.name}'s expense</label>
       <input 
       type='text' 
       disabled 
       value={paidByFriend}/>
 
-      <label> Who is paying the bill ?</label>
+      <label>🤑 Who is paying the bill ?</label>
       <select
       value={whoIsPaying}
       onChange={(e) => setWhoIsPaying(Number(e.target.value))}>
