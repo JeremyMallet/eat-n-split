@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Header from "./header/Header";
+import Footer from "./footer/footer";
 
 const initialFriends = [
   {
@@ -70,6 +71,7 @@ export default function App() {
         <Button onClick={handleShowAddFriend}>{showAddFriend ? 'Close' : "Add Friend"}</Button>
       </div>
       {selectedFriend && <FormSplitBill selectedFriend={selectedFriend} onSplitBill={handleSplitBill}/>}
+      <Footer />
     </div>
   );
 }
@@ -98,7 +100,7 @@ function Friend({ friend, onSelection, selectedFriend }) {
 
       {friend.balance < 0 && (
         <p className="red">
-        you owe {friend.name} {Math.abs(friend.balance)}$
+        You owe {friend.name} {Math.abs(friend.balance)}$
         </p>
       )}
       {friend.balance > 0 && (
@@ -139,13 +141,13 @@ function handleSubmit(e){
 
   return (
     <form className="form-add-friend" onSubmit={handleSubmit}>
-      <label> Friend name</label>
+      <label>🪪Friend name</label>
       <input 
       type="text" 
       value={name} 
       onChange={(e)=> setName(e.target.value)} />
 
-      <label> Image URL</label>
+      <label>🖼️Image URL</label>
       <input 
       type="text" 
       value={image}
